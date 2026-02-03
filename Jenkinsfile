@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''chmod +x jenkins/build.sh
 ./jenkins/build.sh'''
-        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+        archiveArtifacts(artifacts: 'target/*.txt', fingerprint: true)
       }
     }
 
