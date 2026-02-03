@@ -3,13 +3,16 @@ pipeline {
   stages {
     stage('Buzz Build') {
       steps {
-        sh './jenkins/build.sh'
+        sh '''chmod +x jenkins/build.sh
+./jenkins/build.sh'''
+        archiveArtifacts(artifacts: 'target/*.txt', fingerprint: true)
       }
     }
 
     stage('Buzz Test') {
       steps {
-        sh './jenkins/test-all.sh'
+        sh '''chmod +x jenkins/test-all.sh
+./jenkins/test-all.sh'''
       }
     }
 
