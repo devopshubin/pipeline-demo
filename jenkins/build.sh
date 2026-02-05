@@ -2,6 +2,6 @@
 
 echo "Starting Maven build..."
 
-mkdir -p target
+mkdir -p target 
 
-echo "Build completed successfully"
+echo "Build completed successfully" > target/build-output.txt
