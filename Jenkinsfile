@@ -1,9 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('Buzz Buzz') {
+    stage('Buzz Build') {
       steps {
-        echo 'Hi DevOpsHub'
+        sh '''chmod +x jenkins/build.sh 
+./jenkins/build.sh'''
+      }
+    }
+
+    stage('Buzz Test') {
+      steps {
+        sh '''chmod +x jenkins/test-all.sh 
+./jenkins/test-all.sh'''
       }
     }
 
