@@ -11,10 +11,22 @@ chmod +x jenkins/build.sh
     }
 
     stage('Buzz Test') {
-      steps {
-        sh '''chmod +x jenkins/test-all.sh 
+      parallel {
+        stage('Buzz Test') {
+          steps {
+            sh '''chmod +x jenkins/test-all.sh 
 ./jenkins/test-all.sh'''
-        junit '**/surefire-reports/**/*.xml'
+            junit '**/surefire-reports/**/*.xml'
+          }
+        }
+
+        stage('Testing B') {
+          steps {
+            sh '''sleep 10
+echo done'''
+          }
+        }
+
       }
     }
 
