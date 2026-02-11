@@ -13,7 +13,7 @@ pipeline {
       steps {
         sh '''chmod +x jenkins/test-all.sh 
 ./jenkins/test-all.sh'''
-        junit 'target/**/TEST*.xm'
+        junit '**/surefire-reports/**/*.xml'
       }
     }
 
