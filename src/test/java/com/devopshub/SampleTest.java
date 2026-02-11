@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 public class SampleTest {
 
-    @Test
-    public void testAlwaysPass() {
-        assertTrue(true);
-    }
+	@Test
+	public void testAlwaysPass() {
+	assertTrue(true);
+	}
 }
