@@ -1,12 +1,13 @@
 pipeline {
   agent any
+
   stages {
     stage('Buzz Build') {
       steps {
         sh '''echo I am a $BUZZ_NAME
 chmod +x jenkins/build.sh 
 ./jenkins/build.sh'''
-        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+        archiveArtifacts allowEmptyArchive: true, artifacts: 'target/*.jar', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
       }
     }
 
@@ -26,11 +27,10 @@ chmod +x jenkins/build.sh
 echo done'''
           }
         }
-
       }
     }
-
   }
+
   environment {
     BUZZ_NAME = 'Worker Bee'
   }
